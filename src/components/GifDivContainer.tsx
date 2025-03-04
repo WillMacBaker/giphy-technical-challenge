@@ -3,6 +3,7 @@
 // import GifDiv from './gifDiv'
 import { useState, useEffect } from "react"
 import styled from "styled-components"
+import GifDiv from "./GifDiv";
 
 
 
@@ -99,7 +100,7 @@ export interface Pagination {
 interface GifDivContainerProps{
   gifCount: number,
   setGifCount: Function
-  gifData?: any[]
+  gifData?: any
 }
 
 
@@ -118,18 +119,6 @@ const GifParentContainer = styled.div`
 // Based on this, I spawn and produce multiple 'GifDivs'
 
 export default function GifDivContainer({gifCount, gifData}: GifDivContainerProps) {
-
-
-    // console.log(...gifData)
-    // // gifArray: JSON.parse(gifData)
-  
-  useEffect(() => {
-    console.log("gifData", typeof gifData, gifData)
-    console.log()
-  }, [gifData])
-
-
-
   // In here, for each item in the gifData, I need to create a GifDiv, and pass data into it. The GifDiv is where each styled item will appear
 
   return (
@@ -143,7 +132,7 @@ export default function GifDivContainer({gifCount, gifData}: GifDivContainerProp
 
       </ul>
     </GifParentContainer>
-       
+       <GifDiv name={"test"} gifData={gifData}/>
     </>
   )
 }

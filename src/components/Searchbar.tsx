@@ -13,7 +13,7 @@ const API_KEY = process.env.REACT_APP_GIPHY_KEY
 
 export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}: SearchbarProps) {
   // useEffect here handles calling the makeAPIRequest function whenever any defined function changes o
-  
+
 
 
   // This function handles making request to GIPHY API, and returning a data object that is then used by the GifDivContainer
