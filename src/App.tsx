@@ -24,7 +24,92 @@ import { createContext, useEffect, useState } from 'react';
 // Deploy project on web so can live demo the site, using Github or surge
 // When done, provide link to Github and/or live website
 
+export interface GIFData {
+  data:       Datum[];
+  meta:       Meta;
+  pagination: Pagination;
+}
 
+export interface Datum {
+  type:                       string;
+  id:                         string;
+  url:                        string;
+  slug:                       string;
+  bitly_gif_url:              string;
+  bitly_url:                  string;
+  embed_url:                  string;
+  username:                   string;
+  source:                     string;
+  title:                      string;
+  rating:                     string;
+  content_url:                string;
+  source_tld:                 string;
+  source_post_url:            string;
+  is_sticker:                 number;
+  import_datetime:            Date;
+  trending_datetime:          string;
+  images:                     Images;
+  analytics_response_payload: string;
+  analytics:                  Analytics;
+  alt_text:                   string;
+  user?:                      User;
+}
+
+export interface Analytics {
+  onload:  Onclick;
+  onclick: Onclick;
+  onsent:  Onclick;
+}
+
+export interface Onclick {
+  url: string;
+}
+
+export interface Images {
+  original:    FixedWidth;
+  fixed_width: FixedWidth;
+}
+
+export interface FixedWidth {
+  height:    string;
+  width:     string;
+  size:      string;
+  url:       string;
+  mp4_size:  string;
+  mp4:       string;
+  webp_size: string;
+  webp:      string;
+  frames?:   string;
+  hash?:     string;
+}
+
+export interface User {
+  avatar_url:    string;
+  banner_image:  string;
+  banner_url:    string;
+  profile_url:   string;
+  username:      string;
+  display_name:  string;
+  description:   string;
+  instagram_url: string;
+  website_url:   string;
+  is_verified:   boolean;
+}
+
+export interface Meta {
+  status:      number;
+  msg:         string;
+  response_id: string;
+}
+
+export interface Pagination {
+  total_count: number;
+  count:       number;
+  offset:      number;
+}
+
+
+/* END OF PROVIDED TYPESCRIPT INTERFACE CODE*/
 
 
 // Here, I want to declare contexts and things within the scope of the whole app.
@@ -32,8 +117,10 @@ import { createContext, useEffect, useState } from 'react';
 export default  function App() {
   // declare state and handling hooks here
   const [gifCount, setGifCount] = useState(15);
-  const [gifData, setGifData] = useState([])
+  const [gifData, setGifData] = useState()
   const gifArray:any = []
+
+  
   // Initialise gifCount with initial value of '1'
   // 
   
@@ -57,7 +144,7 @@ export default  function App() {
         </header> */}
 
         {/* <ApplicationHandler></ApplicationHandler> */}
-        <Searchbar gifCount={gifCount} setGifCount={setGifCount} gifArray={gifArray} setGifArray={setGifData}/>
+        <Searchbar gifCount={gifCount} setGifCount={setGifCount} gifArray={gifArray} setGifData={setGifData}/>
         <GifDivContainer gifCount={gifCount} setGifCount={setGifCount} gifData={gifData}/>
       </div>
     </>

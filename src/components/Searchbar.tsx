@@ -6,12 +6,12 @@ interface SearchbarProps {
   gifCount: number,
   setGifCount: Function,
   gifArray: any[],
-  setGifArray: Function,
+  setGifData: Function,
 }
 
 const API_KEY = process.env.REACT_APP_GIPHY_KEY
 
-export default function Searchbar({gifCount, setGifCount, gifArray, setGifArray}: SearchbarProps) {
+export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}: SearchbarProps) {
   // useEffect here handles calling the makeAPIRequest function whenever any defined function changes o
   
 
@@ -22,7 +22,7 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifArray}
     await fetch(fetchRequest)
     .then(response => response.json())
     .then(data => {
-      setGifArray(data)
+      setGifData(data)
       // gifArray = []
       // gifArray.push(data)
       // Add catch statements
@@ -47,6 +47,7 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifArray}
         </input>
         
         <select defaultValue={15}  onChange={updateGifCounter}>
+          <option value='5'>5</option>
           <option value='15'>15</option>
           <option value='30'>30</option>
           <option value='60'>60</option>
