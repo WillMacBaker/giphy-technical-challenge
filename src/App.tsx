@@ -1,14 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import styled from 'styled-components'
-
+import './App.css'
 import Searchbar from './components/Searchbar';
 import GifDivContainer from './components/GifDivContainer';
 
-const RedText = styled.p`
-  color: red;
-`
+import { createContext, useEffect, useState } from 'react';
 
 
 // Inside here, I need to place all my components, namely a gif container that loads more gifs when scrolling to bottom
@@ -31,32 +26,41 @@ const RedText = styled.p`
 
 
 
-// Here, I want to import the Searchbar and the GifDivContainer, which is the parent that contains the gif divs (just the gifs themselves)
 
-function App() {
+// Here, I want to declare contexts and things within the scope of the whole app.
+
+export default  function App() {
+  // declare state and handling hooks here
+  const [gifCount, setGifCount] = useState(15);
+  const [gifData, setGifData] = useState([])
+  const gifArray:any = []
+  // Initialise gifCount with initial value of '1'
+  // 
+  
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <br></br>Hi! This template works! 
-        </p>
-        <RedText>This is a test red text element</RedText>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+    <>
+      <div className="App">
+        {/* <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+            <br></br>Hi! This template works! 
+            </p>
+            <RedText>This is a test red text element</RedText>
+            <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            Learn React
+            </a>
+        </header> */}
 
-      <Searchbar />
-      <GifDivContainer />
-
-    </div>
+        {/* <ApplicationHandler></ApplicationHandler> */}
+        <Searchbar gifCount={gifCount} setGifCount={setGifCount} gifArray={gifArray} setGifArray={setGifData}/>
+        <GifDivContainer gifCount={gifCount} setGifCount={setGifCount} gifData={gifData}/>
+      </div>
+    </>
   );
 }
 
-export default App;

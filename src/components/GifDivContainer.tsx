@@ -1,38 +1,54 @@
 // import React from 'react'
 // import styled from 'styled-components'
 // import GifDiv from './gifDiv'
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import styled from "styled-components"
 
 interface GifDivContainerProps{
-    numberOfGifs?: number,
-    arrayOfGifs?: Object[]
+  gifCount: number,
+  setGifCount: Function
+  gifData?: Object[]
 }
+
+const GifParentContainer = styled.div`
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  background-color: lime;
+  max-width: 100%;
+`
 
 // In here is where I want to do the api call, and then handle returned data.
 // Based on this, I spawn and produce multiple 'GifDivs'
 
+export default function GifDivContainer({gifCount, gifData}: GifDivContainerProps) {
+  useEffect(() => {
+    printArrayCount()
+  }, [gifData])
 
-let gifArray: {id: number, name: string}[] = [
+  console.log()
 
-];
+  const printArrayCount = () =>{
+    console.log("gifArray contains: ",typeof gifData, gifData)
+  }
 
+  const produceGifs = gifData?.map((gifItem: any) => {
+    <li key = {gifItem.id}>
+      {gifItem.url}
+    </li>
+  })
 
-
-export default function GifDivContainer({arrayOfGifs, numberOfGifs}: GifDivContainerProps) {
-    let [gifShowCount, setGifShowCount] = useState(0)
-    const handleClick = () => {
-        setGifShowCount(gifShowCount + 1)
-    }
-
-
+  // In here, for each item in the gifData, I need to create a GifDiv, and pass data into it. The GifDiv is where each styled item will appear
 
   return (
     <>
-        <button onClick={handleClick}>
+    {/* Set a counter to only show the gifCount count of gifs, basically */}
+    <GifParentContainer>
 
-        </button>
+      <p>Number of GIFS to return: {gifCount} </p>
+      <br></br>
+    </GifParentContainer>
        
-        <p>{gifShowCount}</p>
     </>
   )
 }
