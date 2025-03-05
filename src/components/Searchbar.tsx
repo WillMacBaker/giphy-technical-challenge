@@ -50,8 +50,7 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}:
           <option value='5'>5</option>
           <option value='15'>15</option>
           <option value='30'>30</option>
-          <option value='60'>60</option>
-          <option value='90'>90</option>
+          <option value='50'>50</option>
         </select>
 
         <button onClick={makeAPIRequest}>GIF it to me!</button>
