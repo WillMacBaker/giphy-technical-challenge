@@ -12,21 +12,28 @@ interface SearchbarProps {
 const API_KEY = process.env.REACT_APP_GIPHY_KEY
 
 export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}: SearchbarProps) {
-  // useEffect here handles calling the makeAPIRequest function whenever any defined function changes o
+  const [inputGifSearch, setInputGifSearch] = useState('')
 
 
 
   // This function handles making request to GIPHY API, and returning a data object that is then used by the GifDivContainer
   async function makeAPIRequest()  {
-    const fetchRequest = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${gifCount}&offset=0&rating=g&bundle=clips_grid_picker`
-    await fetch(fetchRequest)
-    .then(response => response.json())
-    .then(data => {
-      setGifData(data)
-      // gifArray = []
-      // gifArray.push(data)
-      // Add catch statements
-    })
+    if (inputGifSearch){
+      const fetchRequest = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputGifSearch}&limit=${gifCount}&offset=0&rating=g`
+      console.log(fetchRequest)
+      await fetch(fetchRequest)
+      .then(response => response.json())
+      .then(data => {
+        setGifData(data)
+        // gifArray = []
+        // gifArray.push(data)
+        // Add catch statements
+      })
+    }
+    else {
+      alert("Please enter a search term!")
+    }
+   
    
   }
 
@@ -36,14 +43,16 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}:
     setGifCount(value)
   }
 
-
+  const handleInputChange = (event: any) => {
+    setInputGifSearch(event.target.value)
+  }
   
 
   return (
     <>
       <div>
-        <input placeholder="Search for a GIF here">
-        
+        <input placeholder="Search for a GIF here" type="text" onChange={handleInputChange}>
+
         </input>
         
         <select defaultValue={15}  onChange={updateGifCounter}>

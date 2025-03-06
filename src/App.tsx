@@ -127,25 +127,11 @@ export default  function App() {
   return (
     <>
       <div className="App">
-        {/* <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-            <br></br>Hi! This template works! 
-            </p>
-            <RedText>This is a test red text element</RedText>
-            <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            Learn React
-            </a>
-        </header> */}
-
-        {/* <ApplicationHandler></ApplicationHandler> */}
+        <h1>Gif It To Me!</h1>
         <Searchbar gifCount={gifCount} setGifCount={setGifCount} gifArray={gifArray} setGifData={setGifData}/>
         <GifDivContainer gifCount={gifCount} setGifCount={setGifCount} gifData={gifData}/>
+        <p>Powered by Giphy</p>
+        <p>Site developed by William Macluskie</p>
       </div>
     </>
   );
