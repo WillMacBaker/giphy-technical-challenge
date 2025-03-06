@@ -6,10 +6,6 @@ import styled from "styled-components"
 import GifDiv from "./GifDiv";
 import { motion } from 'motion/react'
 
-
-
-
-
 interface GifDivContainerProps{
   gifCount: number,
   setGifCount: Function
@@ -21,10 +17,11 @@ const GifParentContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   // Make sure that GifDiv is rendered as child/wrapped in this container element
+  padding-top: 1rem;
+  justify-self: center;
   justify-content: center;
   max-width: 95%;
   align-items: center;
-  background-color: yellow;
 `
 
 // In here is where I want to do the api call, and then handle returned data.
