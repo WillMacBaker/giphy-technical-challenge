@@ -47,15 +47,15 @@ const StyledLargeGifDataDiv = styled(motion.div)`
 
 const StyledLargeGif = styled.img`
   position: relative;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
   object-fit: contain;
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 75%;
+  max-width: 75%;
+  height: auto;
+  width: auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
   box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2;
 `
-
-
 
 // In here is the 'bottom level' of my components, where I want to handle onclick functionality, and also deal with 
 // styling and displaying the gif itself on the site
@@ -97,12 +97,8 @@ export default function GifDiv({name, gifData, count}: GifDivProps) {
                 </table>
               </StyledLargeGifDataDiv>
             </OverlayGifElement>
-            
-            
-            
           </motion.div>
         : null}
-        
       </GifDivElement>
     </>
   )
