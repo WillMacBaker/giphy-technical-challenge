@@ -102,11 +102,18 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}:
     setInputGifSearch(event.target.value)
   }
   
+  const inputListener = document.getElementById('searchInput')
+  inputListener?.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      document.getElementById('inputButton')?.click();
+    }
+  })
   
   return (
     <>
       <div>
-        <StyledInput placeholder="Search for a GIF here" type="text" onChange={handleInputChange}></StyledInput>
+        <StyledInput placeholder="Search for a GIF here" type="text" id="searchInput" onChange={handleInputChange}></StyledInput>
         
         <StyledSelect defaultValue={15}  onChange={updateGifCounter}>
           <option value='5'>5</option>
@@ -116,7 +123,7 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}:
         </StyledSelect>
       </div>
         <div>
-          <StyledButton onClick={makeAPIRequest}>GIF it to me!</StyledButton>
+          <StyledButton onClick={makeAPIRequest} id="inputButton">GIF it to me!</StyledButton>
       </div>
     </>
   )
