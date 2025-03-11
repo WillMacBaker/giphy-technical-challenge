@@ -28,10 +28,16 @@ const StyledButton= styled(motion.button)`
   outline: none;
   box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2;
 
-  &:click {
-    
-    box-shadow: 2px 2px 0 #000, 2px 2px 0 #4a90e2;
+  &:hover {
+    background-color: #4a90e2;
+    color: #fff;
   }
+  // When button has been clicked
+  &:active {
+    transform: translate(3px, 3px);
+    box-shadow: 5px 5px 0 #000;
+  }
+
 `
 
 const StyledInput = styled.input`
@@ -113,9 +119,15 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}:
   return (
     <>
       <div>
-        <StyledInput placeholder="Search for a GIF here" type="text" id="searchInput" onChange={handleInputChange}></StyledInput>
+        <StyledInput 
+          placeholder="Search for a GIF here" 
+          type="text" 
+          id="searchInput" 
+          onChange={handleInputChange}
+          maxLength={25}
+        ></StyledInput>
         
-        <StyledSelect defaultValue={15}  onChange={updateGifCounter}>
+        <StyledSelect defaultValue={15} onChange={updateGifCounter}>
           <option value='5'>5</option>
           <option value='15'>15</option>
           <option value='30'>30</option>

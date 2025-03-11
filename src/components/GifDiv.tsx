@@ -51,7 +51,7 @@ const StyledLargeGif = styled.img`
   padding-bottom: 2vh;
   object-fit: contain;
   max-height: 100%;
-  max-width: 100%;;
+  max-width: 100%;
   box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2;
 `
 
@@ -84,7 +84,9 @@ export default function GifDiv({name, gifData, count}: GifDivProps) {
         <motion.div >
             <OverlayGifElement initial={{opacity: 0}} animate={{opacity: 1}}>
               <StyledLargeGifDataDiv>
-                <StyledLargeGif src={gifData?.images.original.url}></StyledLargeGif>
+                <StyledLargeGif src={gifData?.images.original.url}
+                key={"LARGE GIF: " + gifData?.id}
+                id= {"LARGE GifCount:"+ count + " " + gifData?.id}></StyledLargeGif>
                 <table>
                   <tr>
                     <th>Title:</th><tr>{gifData?.title || "NO TITLE :("}</tr>

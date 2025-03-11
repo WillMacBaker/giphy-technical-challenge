@@ -48,7 +48,7 @@ const gifDataStrippedDown = gifData?.data
     <GifParentContainer>
       {
         gifDataStrippedDown?.map((gifItem?:any, index?: number) => (
-         <GifDiv gifData={gifItem} count={index}/>
+         <GifDiv gifData={gifItem} count={index} key={index}/>
       ))}
     </GifParentContainer>
        
