@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/giphy-technical-challenge/static/css/main.f855e6bc.css",
-    "main.js": "/giphy-technical-challenge/static/js/main.96d10534.js",
+    "main.js": "/giphy-technical-challenge/static/js/main.c7ea3e6f.js",
     "static/js/453.2287ea64.chunk.js": "/giphy-technical-challenge/static/js/453.2287ea64.chunk.js",
     "index.html": "/giphy-technical-challenge/index.html",
     "main.f855e6bc.css.map": "/giphy-technical-challenge/static/css/main.f855e6bc.css.map",
-    "main.96d10534.js.map": "/giphy-technical-challenge/static/js/main.96d10534.js.map",
+    "main.c7ea3e6f.js.map": "/giphy-technical-challenge/static/js/main.c7ea3e6f.js.map",
     "453.2287ea64.chunk.js.map": "/giphy-technical-challenge/static/js/453.2287ea64.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.96d10534.js"
+    "static/js/main.c7ea3e6f.js"
   ]
 }
