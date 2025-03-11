@@ -32,8 +32,8 @@ export default function GifDivContainer({gifCount, gifData}: GifDivContainerProp
   useEffect(() => {
     // Add if statement to hide first console logs, on load, you won't have any data returned
     if (gifData){
-      console.log("gifData", gifData)
-      console.log(gifData?.data)
+      // console.log("gifData", gifData)
+      // console.log(gifData?.data)
       
     } 
   }, [gifData])

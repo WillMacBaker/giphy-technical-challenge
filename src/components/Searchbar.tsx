@@ -77,7 +77,7 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}:
   async function makeAPIRequest()  {
     if (inputGifSearch){
       const fetchRequest = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${inputGifSearch}&limit=${gifCount}&offset=0&rating=g`
-      console.log(fetchRequest)
+      // console.log(fetchRequest)
       await fetch(fetchRequest)
       .then(response => response.json())
       .then(data => {
@@ -94,7 +94,7 @@ export default function Searchbar({gifCount, setGifCount, gifArray, setGifData}:
 
   const updateGifCounter = (event: any) => {
     const value = event.target.value
-    console.log("value in dropdown changed to ", value)
+    // console.log("value in dropdown changed to ", value)
     setGifCount(value)
   }
 
