@@ -37,7 +37,9 @@ const OverlayGifElement = styled(motion.div)`
 `
 
 const StyledLargeGifDataDiv = styled(motion.div)`
-  background-color: rgba(255, 255, 255, 0.96); 
+  /* background-color: rgba(255, 255, 255, 0.96); */
+  // Check this out as example
+  background-image: repeating-linear-gradient(135deg, #d8f7fb,#d8f7fb 20vw,#ffffff 20vw,#ffffff 40vw,#f2ebc6 40vw,#f2ebc6 60vw,#ffffff 60vw,#ffffff 80vw,#cbf9df 80vw,#cbf9df 100vw,#ffffff 100vw,#ffffff 120vw); 
   width: 50%;
   height: auto;
   position: relative;
@@ -89,7 +91,19 @@ export default function GifDiv({name, gifData, count}: GifDivProps) {
                 id= {"LARGE GifCount:"+ count + " " + gifData?.id}></StyledLargeGif>
                 <table>
                   <tr>
+                    {gifData?.title?
+                    <>
                     <th>Title:</th><tr>{gifData?.title || "NO TITLE :("}</tr>
+                    </>
+                  : null}
+                  </tr>
+                  <tr>
+                    {gifData?.username?
+                    <>
+                      <th>Username:</th><tr> {gifData?.username || "NO USERNAME :("}</tr>
+                    </>
+                    : null
+                  }
                   </tr>
                   <tr>
                     <th>Rating:</th><tr> {gifData?.rating || "NO RATING :("}</tr>
